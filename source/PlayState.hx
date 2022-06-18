@@ -709,6 +709,10 @@ class PlayState extends MusicBeatState
 		}
 
 		dad = new Character(100, 100, SONG.player2);
+		if(Performance.getPref('low-dad')) {
+			dad.x += 110;
+			dad.y += 150;
+		}
 
 		camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -750,9 +754,14 @@ class PlayState extends MusicBeatState
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case "tankman":
 				dad.y += 180;
+			
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
+		if(Performance.getPref('low-bf')) {
+			boyfriend.x += 790;
+			boyfriend.y += 480;
+		}
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)

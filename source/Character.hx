@@ -36,7 +36,7 @@ class Character extends FlxSprite
 		{
 			case 'gf':
 				// GIRLFRIEND CODE
-				if(Performance.getPref('low_gf')) {
+				if(Performance.getPref('low-gf')) {
 					tex = Paths.getSparrowAtlas('characters/GF_assets_low');
 					frames = tex;
 					quickAnimAdd('cheer', 'GF Cheer');
@@ -299,8 +299,8 @@ class Character extends FlxSprite
 					loadOffsetFile(curCharacter);
 
 					setGraphicSize(Std.int(width * 2));
-					setPosition(0, 0);
-					
+					//setPosition(0, 0);
+
 					playAnim('idle');
 
 					flipX = true;
