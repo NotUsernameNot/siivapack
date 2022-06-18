@@ -3,6 +3,7 @@ package;
 import animate.FlxAnimate;
 import shaderslmfao.BuildingShaders;
 import ui.PreferencesMenu;
+import ui.Performance;
 import shaderslmfao.ColorSwap;
 #if desktop
 import Discord.DiscordClient;
@@ -1172,7 +1173,7 @@ class PlayState extends MusicBeatState
 
 			for (value in introAssets.keys())
 			{
-				if (value == curStage)
+				if (value == curStage || Performance.getPref('pixel-ui'))
 				{
 					introAlts = introAssets.get(value);
 					altSuffix = '-pixel';
@@ -1189,7 +1190,7 @@ class PlayState extends MusicBeatState
 					ready.scrollFactor.set();
 					ready.updateHitbox();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('school') || Performance.getPref('pixel-ui'))
 						ready.setGraphicSize(Std.int(ready.width * daPixelZoom));
 
 					ready.screenCenter();
@@ -1206,7 +1207,7 @@ class PlayState extends MusicBeatState
 					var set:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[1]));
 					set.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('school') || Performance.getPref('pixel-ui'))
 						set.setGraphicSize(Std.int(set.width * daPixelZoom));
 
 					set.screenCenter();
@@ -1223,7 +1224,7 @@ class PlayState extends MusicBeatState
 					var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image(introAlts[2]));
 					go.scrollFactor.set();
 
-					if (curStage.startsWith('school'))
+					if (curStage.startsWith('school') || Performance.getPref('pixel-ui'))
 						go.setGraphicSize(Std.int(go.width * daPixelZoom));
 
 					go.updateHitbox();
@@ -2113,7 +2114,7 @@ class PlayState extends MusicBeatState
 		var pixelShitPart1:String = "";
 		var pixelShitPart2:String = '';
 
-		if (curStage.startsWith('school'))
+		if (curStage.startsWith('school') || Performance.getPref('pixel-ui'))
 		{
 			pixelShitPart1 = 'weeb/pixelUI/';
 			pixelShitPart2 = '-pixel';

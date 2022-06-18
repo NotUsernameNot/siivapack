@@ -54,6 +54,7 @@ class Character extends FlxSprite
 					loadOffsetFile(curCharacter);
 
 					setGraphicSize(Std.int(width * 2));
+					//setPosition(0, 0);
 
 					playAnim('danceRight');
 				}			
@@ -298,7 +299,8 @@ class Character extends FlxSprite
 					loadOffsetFile(curCharacter);
 
 					setGraphicSize(Std.int(width * 2));
-
+					setPosition(0, 0);
+					
 					playAnim('idle');
 
 					flipX = true;

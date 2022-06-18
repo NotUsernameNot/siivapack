@@ -26,7 +26,7 @@ class Performance extends Page
 		add(items = new TextMenuList());
 		createPrefItem('Low Quality Stages', 'low-stage', false);
 		createPrefItem('Low Quality BF', 'low-bf', false);
-		createPrefItem('Low Quality GF', 'low-gf', true);
+		createPrefItem('Low Quality GF', 'low-gf', false);
 		createPrefItem('Low Quality Opponent', 'low-dad', false);
 		createPrefItem('Pixel UI', 'pixel-ui', false);
 		camFollow = new FlxObject(FlxG.width / 2, 0, 140, 70);
@@ -52,7 +52,7 @@ class Performance extends Page
 	{
 		preferenceCheck('low-stage', false);
 		preferenceCheck('low-bf', false);
-		preferenceCheck('low-gf', true);
+		preferenceCheck('low-gf', false);
 		preferenceCheck('low-dad', false);
 		preferenceCheck('pixel-ui', false);
 	}
@@ -62,11 +62,11 @@ class Performance extends Page
 		if (performance.get(identifier) == null)
 		{
 			performance.set(identifier, defaultValue);
-			trace('set performance!');
+			trace('set preference!');
 		}
 		else
 		{
-			trace('found performance: ' + Std.string(performance.get(identifier)));
+			trace('found preference: ' + Std.string(performance.get(identifier)));
 		}
 	}
 
