@@ -86,7 +86,7 @@ class Note extends FlxSprite
 			default:
 				if (Performance.getPref('pixel-ui')) 
 				{
-					loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
+					loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels', 'week6'), true, 17, 17);
 
 					animation.add('greenScroll', [6]);
 					animation.add('redScroll', [7]);
@@ -95,7 +95,7 @@ class Note extends FlxSprite
 
 					if (isSustainNote)
 					{
-						loadGraphic(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+						loadGraphic(Paths.image('weeb/pixelUI/arrowEnds', 'week6'), true, 7, 6);
 
 						animation.add('purpleholdend', [4]);
 						animation.add('greenholdend', [6]);
@@ -186,7 +186,7 @@ class Note extends FlxSprite
 
 			x -= width / 2;
 
-			if (PlayState.curStage.startsWith('school'))
+			if (PlayState.curStage.startsWith('school') || Performance.getPref('pixel-ui'))
 				x += 30;
 
 			if (prevNote.isSustainNote)

@@ -50,11 +50,11 @@ class Performance extends Page
 
 	public static function initPrefs()
 	{
-		preferenceCheck('low-stage', true);
-		preferenceCheck('low-bf', true);
-		preferenceCheck('low-gf', false);
-		preferenceCheck('low-dad', true);
-		preferenceCheck('pixel-ui', true);
+		preferenceCheck('low-stage', false);
+		preferenceCheck('low-bf', false);
+		preferenceCheck('low-gf', true);
+		preferenceCheck('low-dad', false);
+		preferenceCheck('pixel-ui', false);
 	}
 
 	public static function preferenceCheck(identifier:String, defaultValue:Dynamic)
