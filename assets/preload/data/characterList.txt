@@ -1,11 +1,16 @@
 bf
 bf-scat
 bf-deez
+bf-crew
 dad
 dad-scat
+dad-imposter
+dad-imposter-alt
+big-chungus
 gf
 gf-scat
 gf-pig
+gf-ayo
 spooky
 pico
 mom

@@ -258,6 +258,7 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconRPC);
 		#end
 
+		var lowStage:String = 'pigcurtains';
 		switch (SONG.song.toLowerCase()) //why is the code like this 
 		{
                  case 'spookeez' | 'monster' | 'south': 
@@ -654,24 +655,35 @@ class PlayState extends MusicBeatState
 		                  stageFront.active = false;
 		                  add(stageFront);
 
-		                  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainsangry'));
-		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-		                  stageCurtains.updateHitbox();
-		                  stageCurtains.antialiasing = true;
-		                  stageCurtains.scrollFactor.set(1.3, 1.3);
-		                  stageCurtains.active = false;
+		                  if(!Performance.getPref('low-stage')) {
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
 
-		                  add(stageCurtains);
+							add(stageCurtains);
+						  }
+						  else {
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
+
+							add(stageCurtains);	
+						  }
 		          }
-              
 				  case 'bopeebo-in-game-version':
 				  {
 					   	  defaultCamZoom = 0.9;
 						  curStage = 'stagepig';
-						  var bg:BGSprite = new BGSprite('stagebackpig', -600, -200, 0.9, 0.9);
+						  var bg:BGSprite = new BGSprite('pigback', -600, -200, 0.9, 0.9);
 						  add(bg);
   
-						  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefrontpig'));
+						  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('pigfront'));
 					      stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 					      stageFront.updateHitbox();
 						  stageFront.antialiasing = true;
@@ -679,14 +691,26 @@ class PlayState extends MusicBeatState
 						  stageFront.active = false;
 						  add(stageFront);
 
-						  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainspig'));
-		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-		                  stageCurtains.updateHitbox();
-		                  stageCurtains.antialiasing = true;
-		                  stageCurtains.scrollFactor.set(1.3, 1.3);
-		                  stageCurtains.active = false;
+						  if(!Performance.getPref('low-stage')) {
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
 
-		                  add(stageCurtains);
+							add(stageCurtains);
+						  }
+						  else {
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
+
+							add(stageCurtains);	
+						  }
 				  }
 		          case 'bopeebo-beta-mix':
 		          {
@@ -703,38 +727,100 @@ class PlayState extends MusicBeatState
 		                  stageFront.active = false;
 		                  add(stageFront);
 
-		                  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-		                  stageCurtains.updateHitbox();
-		                  stageCurtains.antialiasing = true;
-		                  stageCurtains.scrollFactor.set(1.3, 1.3);
-		                  stageCurtains.active = false;
+		                  if(Performance.getPref('low-stage')) {
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
 
-		                  add(stageCurtains);
+							add(stageCurtains);
+						  }
+						  else {
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
+
+							add(stageCurtains);	
+						  }
 		          }
 				  default:
 		          {
-		                  defaultCamZoom = 0.9;
-						  curStage = 'stage';
-		                  var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
-		                  add(bg);
-
-		                  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
-		                  stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-		                  stageFront.updateHitbox();
-		                  stageFront.antialiasing = true;
-		                  stageFront.scrollFactor.set(0.9, 0.9);
-		                  stageFront.active = false;
-		                  add(stageFront);
-
-		                  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-		                  stageCurtains.updateHitbox();
-		                  stageCurtains.antialiasing = true;
-		                  stageCurtains.scrollFactor.set(1.3, 1.3);
-		                  stageCurtains.active = false;
-
-		                  add(stageCurtains);
+						if(SONG.player2 == 'crazybus') {
+							defaultCamZoom = 0.9;
+							curStage = 'stage';
+							var bg:BGSprite = new BGSprite('characters/crazyback', -600, -200, 0.9, 0.9);
+							add(bg);
+  
+							var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('characters/crazyfront'));
+							stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+							stageFront.updateHitbox();
+							stageFront.antialiasing = true;
+							stageFront.scrollFactor.set(0.9, 0.9);
+							stageFront.active = false;
+							add(stageFront);
+  
+							if(Performance.getPref('low-stage')) {
+								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
+								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+								stageCurtains.updateHitbox();
+								stageCurtains.antialiasing = true;
+								stageCurtains.scrollFactor.set(1.3, 1.3);
+								stageCurtains.active = false;
+  
+								add(stageCurtains);
+							}
+							else {
+								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+								stageCurtains.updateHitbox();
+								stageCurtains.antialiasing = true;
+								stageCurtains.scrollFactor.set(1.3, 1.3);
+								stageCurtains.active = false;
+  
+								add(stageCurtains);	
+							};	
+						}  
+						else {
+							defaultCamZoom = 0.9;
+							curStage = 'stage';
+							var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+							add(bg);
+  
+							var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+							stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+							stageFront.updateHitbox();
+							stageFront.antialiasing = true;
+							stageFront.scrollFactor.set(0.9, 0.9);
+							stageFront.active = false;
+							add(stageFront);
+							
+							if(Performance.getPref('low-stage')) {
+								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
+								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+								stageCurtains.updateHitbox();
+								stageCurtains.antialiasing = true;
+								stageCurtains.scrollFactor.set(1.3, 1.3);
+								stageCurtains.active = false;
+  
+								add(stageCurtains);
+							}
+							else {
+								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+								stageCurtains.updateHitbox();
+								stageCurtains.antialiasing = true;
+								stageCurtains.scrollFactor.set(1.3, 1.3);
+								stageCurtains.active = false;
+  
+								add(stageCurtains);	
+							}
+							
+						}  
 		          }
               }
 
@@ -760,6 +846,8 @@ class PlayState extends MusicBeatState
 			gfVersion = 'pico-speaker';
 		if (SONG.song.toLowerCase() == 'bopeebo-itch.io-build')
 			gfVersion = 'gf-scat';
+		if (SONG.song.toLowerCase() == 'fresh')
+			gfVersion = 'gf-ayo';
 		//if (SONG.song.toLowerCase() == 'bopeebo-in-game-version')
 		//	gfVersion = 'gf-pig';
 
@@ -788,7 +876,7 @@ class PlayState extends MusicBeatState
 		dad = new Character(100, 100, SONG.player2);
 		if(Performance.getPref('low-dad')) {
 			dad.x += 110;
-			dad.y += 150;
+			dad.y += 165;
 		}
 
 		camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
@@ -1369,7 +1457,7 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
-		if (SONG.needsVoices)
+		if (SONG.needsVoices && SONG.song.toLowerCase() != 'bopeebo')
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();
@@ -2004,7 +2092,7 @@ class PlayState extends MusicBeatState
 
 					dad.holdTimer = 0;
 
-					if (SONG.needsVoices)
+					if (SONG.needsVoices && SONG.song.toLowerCase() != 'bopeebo')
 						vocals.volume = 1;
 
 					daNote.kill();
@@ -2171,7 +2259,12 @@ class PlayState extends MusicBeatState
 		}
 		else if (noteDiff > Conductor.safeZoneOffset * 0.2)
 		{
-			daRating = 'good';
+			if(SONG.song.toLowerCase() == 'fresh-in-game-version') {
+				daRating = 'gold';
+			}
+			else {
+				daRating = 'good';
+			}
 			score = 200;
 			doSplash = false;
 		}
