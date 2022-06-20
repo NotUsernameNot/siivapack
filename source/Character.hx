@@ -120,6 +120,7 @@ class Character extends FlxSprite
 
 					playAnim('danceRight');
 				}
+				
 			case 'gf-pig':
 				tex = Paths.getSparrowAtlas('characters/GF_pig');
 				frames = tex;
