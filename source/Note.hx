@@ -84,7 +84,7 @@ class Note extends FlxSprite
 				updateHitbox();
 
 			default:
-				if (Performance.getPref('pixel-ui') && PlayState.curStage != 'school' || PlayState.curStage != 'schoolEvil') 
+				if (Performance.getPref('pixel-ui') && !PlayState.curStage.startsWith('school')) 
 				{
 					loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels'), true, 17, 17);
 

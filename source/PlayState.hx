@@ -260,22 +260,22 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase()) //why is the code like this 
 		{
-			case 'bopeebo-in-game-version':
-			{
-				defaultCamZoom = 0.9;
-				curStage = 'stagepig';
-	            var bg:BGSprite = new BGSprite('stagebackpig', -600, -200, 0.9, 0.9);
-		        add(bg);
+				 case 'bopeebo-in-game-version':
+			 	 {
+					 defaultCamZoom = 0.9;
+				 	 curStage = 'stagepig';
+	       		     var bg:BGSprite = new BGSprite('stagebackpig', -600, -200, 0.9, 0.9);
+		  		     add(bg);
 
-		        var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefrontpig'));
-		        stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-		        stageFront.updateHitbox();
-		        stageFront.antialiasing = true;
-		        stageFront.scrollFactor.set(0.9, 0.9);
-		        stageFront.active = false;
-		    	add(stageFront);
-			}
-                        case 'spookeez' | 'monster' | 'south': 
+		 		     var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefrontpig'));
+					 stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					 stageFront.updateHitbox();
+		 		     stageFront.antialiasing = true;
+		 	         stageFront.scrollFactor.set(0.9, 0.9);
+		 	         stageFront.active = false;
+		 			 add(stageFront);
+				 }
+                 case 'spookeez' | 'monster' | 'south': 
                         {
                                 curStage = 'spooky';
 	                          halloweenLevel = true;

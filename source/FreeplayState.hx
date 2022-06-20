@@ -65,7 +65,7 @@ class FreeplayState extends MusicBeatState
 		}
 
 		if (StoryMenuState.weekUnlocked[2])
-			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Dadbattle'], 1, ['dad']);
+			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Dadbattle'], 1, ['dad']);
 
 		if (StoryMenuState.weekUnlocked[2])
 			addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky', 'spooky', 'monster']);
