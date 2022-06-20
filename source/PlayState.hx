@@ -678,7 +678,16 @@ class PlayState extends MusicBeatState
 					      stageFront.scrollFactor.set(0.9, 0.9);
 						  stageFront.active = false;
 						  add(stageFront);
-				   }
+
+						  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainspig'));
+		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+		                  stageCurtains.updateHitbox();
+		                  stageCurtains.antialiasing = true;
+		                  stageCurtains.scrollFactor.set(1.3, 1.3);
+		                  stageCurtains.active = false;
+
+		                  add(stageCurtains);
+				  }
 		          case 'bopeebo-beta-mix':
 		          {
 		                  defaultCamZoom = 1.10;
@@ -749,8 +758,8 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() == 'stress')
 			gfVersion = 'pico-speaker';
-		//if (SONG.song.toLowerCase() == 'bopeebo-itch.io-build')
-		//	gfVersion = 'gf-scat';
+		if (SONG.song.toLowerCase() == 'bopeebo-itch.io-build')
+			gfVersion = 'gf-scat';
 		//if (SONG.song.toLowerCase() == 'bopeebo-in-game-version')
 		//	gfVersion = 'gf-pig';
 
