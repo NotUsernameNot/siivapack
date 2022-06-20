@@ -759,8 +759,8 @@ class PlayState extends MusicBeatState
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
 		if(Performance.getPref('low-bf')) {
-			boyfriend.x += 700;
-			boyfriend.y += 400;
+			boyfriend.x += 590;
+			boyfriend.y += 320;
 		}
 
 		// REPOSITIONING PER STAGE
