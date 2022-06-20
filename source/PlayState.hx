@@ -747,10 +747,10 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() == 'stress')
 			gfVersion = 'pico-speaker';
-		if (SONG.song.toLowerCase() == 'bopeebo-itch.io-build')
-			gfVersion = 'gf-scat';
-		if (SONG.song.toLowerCase() == 'bopeebo-in-game-version')
-			gfVersion = 'gf-pig';
+		//if (SONG.song.toLowerCase() == 'bopeebo-itch.io-build')
+		//	gfVersion = 'gf-scat';
+		//if (SONG.song.toLowerCase() == 'bopeebo-in-game-version')
+		//	gfVersion = 'gf-pig';
 
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
