@@ -56,7 +56,7 @@ class PlayState extends MusicBeatState
 	public static var isStoryMode:Bool = false;
 	public static var storyWeek:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
-	public static var storyDifficulty:Int = 1;
+	public static var storyDifficulty:Int = 0;
 	public static var deathCounter:Int = 0;
 	public static var practiceMode:Bool = false;
 	public static var seenCutscene:Bool = false;
@@ -223,10 +223,8 @@ class PlayState extends MusicBeatState
 		switch (storyDifficulty)
 		{
 			case 0:
-				storyDifficultyText = "Easy";
-			case 1:
 				storyDifficultyText = "Normal";
-			case 2:
+			case 1:
 				storyDifficultyText = "Hard";
 		}
 
@@ -260,8 +258,23 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconRPC);
 		#end
 
-		switch (SONG.song.toLowerCase())
+		switch (SONG.song.toLowerCase()) //why is the code like this 
 		{
+			case 'bopeebo-in-game-version':
+			{
+				defaultCamZoom = 0.9;
+				curStage = 'stagepig';
+	            var bg:BGSprite = new BGSprite('stagebackpig', -600, -200, 0.9, 0.9);
+		        add(bg);
+
+		        var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefrontpig'));
+		        stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+		        stageFront.updateHitbox();
+		        stageFront.antialiasing = true;
+		        stageFront.scrollFactor.set(0.9, 0.9);
+		        stageFront.active = false;
+		    	add(stageFront);
+			}
                         case 'spookeez' | 'monster' | 'south': 
                         {
                                 curStage = 'spooky';
@@ -641,7 +654,56 @@ class PlayState extends MusicBeatState
 						var tankdude3:BGSprite = new BGSprite('tank3', 1300, 1200, 3.5, 2.5, ['fg']);
 						foregroundSprites.add(tankdude3);
 				  }
-		          default:
+				  case 'bopeebo-newgrounds-build':
+		          {
+		                  defaultCamZoom = 0.9;
+						  curStage = 'stageangry';
+		                  var bg:BGSprite = new BGSprite('stagebackangry', -600, -200, 0.9, 0.9);
+		                  add(bg);
+
+		                  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefrontangry'));
+		                  stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+		                  stageFront.updateHitbox();
+		                  stageFront.antialiasing = true;
+		                  stageFront.scrollFactor.set(0.9, 0.9);
+		                  stageFront.active = false;
+		                  add(stageFront);
+
+		                  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainsangry'));
+		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+		                  stageCurtains.updateHitbox();
+		                  stageCurtains.antialiasing = true;
+		                  stageCurtains.scrollFactor.set(1.3, 1.3);
+		                  stageCurtains.active = false;
+
+		                  add(stageCurtains);
+		          }
+              
+		          case 'bopeebo-beta-mix':
+		          {
+		                  defaultCamZoom = 1.10;
+						  curStage = 'stage';
+		                  var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+		                  add(bg);
+
+		                  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+		                  stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+		                  stageFront.updateHitbox();
+		                  stageFront.antialiasing = true;
+		                  stageFront.scrollFactor.set(0.9, 0.9);
+		                  stageFront.active = false;
+		                  add(stageFront);
+
+		                  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+		                  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+		                  stageCurtains.updateHitbox();
+		                  stageCurtains.antialiasing = true;
+		                  stageCurtains.scrollFactor.set(1.3, 1.3);
+		                  stageCurtains.active = false;
+
+		                  add(stageCurtains);
+		          }
+				  default:
 		          {
 		                  defaultCamZoom = 0.9;
 						  curStage = 'stage';
@@ -685,6 +747,10 @@ class PlayState extends MusicBeatState
 
 		if (SONG.song.toLowerCase() == 'stress')
 			gfVersion = 'pico-speaker';
+		if (SONG.song.toLowerCase() == 'bopeebo-itch.io-build')
+			gfVersion = 'gf-scat';
+		if (SONG.song.toLowerCase() == 'bopeebo-in-game-version')
+			gfVersion = 'gf-pig';
 
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
@@ -759,8 +825,8 @@ class PlayState extends MusicBeatState
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
 		if(Performance.getPref('low-bf')) {
-			boyfriend.x += 590;
-			boyfriend.y += 320;
+			boyfriend.x += 10;
+			boyfriend.y += 30;
 		}
 
 		// REPOSITIONING PER STAGE
@@ -2016,10 +2082,7 @@ class PlayState extends MusicBeatState
 			{
 				var difficulty:String = "";
 
-				if (storyDifficulty == 0)
-					difficulty = '-easy';
-
-				if (storyDifficulty == 2)
+				if (storyDifficulty == 1)
 					difficulty = '-hard';
 
 				trace('LOADING NEXT SONG');
@@ -2694,7 +2757,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
+		if (curBeat % 8 == 7 && curSong == 'Bopeebo' || curSong == 'Bopeebo Beta Mix' || curSong == 'Bopeebo Newgrounds Build' || curSong == 'Bopeebo Extended Version')
 		{
 			boyfriend.playAnim('hey', true);
 		}

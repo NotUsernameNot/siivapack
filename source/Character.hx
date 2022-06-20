@@ -77,6 +77,68 @@ class Character extends FlxSprite
 
 					playAnim('danceRight');
 				}
+			case 'gf-scat':
+				// GIRLFRIEND CODE
+				if(Performance.getPref('low-gf')) {
+					tex = Paths.getSparrowAtlas('characters/GF_assets_low');
+					frames = tex;
+					quickAnimAdd('cheer', 'GF Cheer');
+					quickAnimAdd('singLEFT', 'GF left note');
+					quickAnimAdd('singRIGHT', 'GF Right Note');
+					quickAnimAdd('singUP', 'GF Up Note');
+					quickAnimAdd('singDOWN', 'GF Down Note');
+					animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, true);
+					animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+					animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+					animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+					animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+					animation.addByPrefix('scared', 'GF FEAR', 24, true);
+
+					loadOffsetFile(curCharacter);
+
+					setGraphicSize(Std.int(width * 2));
+					//setPosition(0, 0);
+
+					playAnim('danceRight');
+				}			
+				else {
+					tex = Paths.getSparrowAtlas('characters/GF_scat');
+					frames = tex;
+					quickAnimAdd('cheer', 'GF Cheer');
+					quickAnimAdd('singLEFT', 'GF left note');
+					quickAnimAdd('singRIGHT', 'GF Right Note');
+					quickAnimAdd('singUP', 'GF Up Note');
+					quickAnimAdd('singDOWN', 'GF Down Note');
+					animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, true);
+					animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+					animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+					animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+					animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+					animation.addByPrefix('scared', 'GF FEAR', 24, true);
+
+					loadOffsetFile(curCharacter);
+
+					playAnim('danceRight');
+				}
+			case 'gf-pig':
+				tex = Paths.getSparrowAtlas('characters/GF_pig');
+				frames = tex;
+				quickAnimAdd('cheer', 'GF Cheer');
+				quickAnimAdd('singLEFT', 'GF left note');
+				quickAnimAdd('singRIGHT', 'GF Right Note');
+				quickAnimAdd('singUP', 'GF Up Note');
+				quickAnimAdd('singDOWN', 'GF Down Note');
+				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, true);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+				animation.addByPrefix('scared', 'GF FEAR', 24, true);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('danceRight');
+
 			case 'gf-christmas':
 				tex = Paths.getSparrowAtlas('characters/gfChristmas');
 				frames = tex;
@@ -163,6 +225,18 @@ class Character extends FlxSprite
 
 					playAnim('idle');
 				}
+			case 'dad-scat':
+				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_SCAT');
+				frames = tex;
+				quickAnimAdd('idle', 'Dad idle dance');
+				quickAnimAdd('singUP', 'Dad Sing Note UP');
+				quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+				quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+				quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
 				
 			case 'spooky':
 				tex = Paths.getSparrowAtlas('characters/spooky_kids_assets');
@@ -335,7 +409,125 @@ class Character extends FlxSprite
 					
 					loadOffsetFile(curCharacter);
 				}
+				case 'bf-deez':
+					if(Performance.getPref('low-bf')) {
+						tex = Paths.getSparrowAtlas('characters/BOYFRIEND_DEEZ');
+						frames = tex;
+						quickAnimAdd('idle', 'BF idle dance');
+						quickAnimAdd('singUP', 'BF NOTE UP0');
+						quickAnimAdd('singLEFT', 'BF NOTE LEFT0');
+						quickAnimAdd('singRIGHT', 'BF NOTE RIGHT0');
+						quickAnimAdd('singDOWN', 'BF NOTE DOWN0');
+						quickAnimAdd('singUPmiss', 'BF NOTE UP MISS');
+						quickAnimAdd('singLEFTmiss', 'BF NOTE LEFT MISS');
+						quickAnimAdd('singRIGHTmiss', 'BF NOTE RIGHT MISS');
+						quickAnimAdd('singDOWNmiss', 'BF NOTE DOWN MISS');
+						quickAnimAdd('hey', 'BF HEY');
+	
+						quickAnimAdd('firstDeath', "BF dies");
+						animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+						quickAnimAdd('deathConfirm', "BF Dead confirm");
+	
+						animation.addByPrefix('scared', 'BF idle shaking', 24, true);
+	
+						loadOffsetFile(curCharacter);
+						//setGraphicSize(Std.int(width * 2));
+						//setPosition(0, 0);
+	
+						playAnim('idle');
+	
+						flipX = true;
+						
+						loadOffsetFile(curCharacter);
+					}
+					else {
+						tex = Paths.getSparrowAtlas('characters/BOYFRIEND_DEEZ');
+						frames = tex;
+						quickAnimAdd('idle', 'BF idle dance');
+						quickAnimAdd('singUP', 'BF NOTE UP0');
+						quickAnimAdd('singLEFT', 'BF NOTE LEFT0');
+						quickAnimAdd('singRIGHT', 'BF NOTE RIGHT0');
+						quickAnimAdd('singDOWN', 'BF NOTE DOWN0');
+						quickAnimAdd('singUPmiss', 'BF NOTE UP MISS');
+						quickAnimAdd('singLEFTmiss', 'BF NOTE LEFT MISS');
+						quickAnimAdd('singRIGHTmiss', 'BF NOTE RIGHT MISS');
+						quickAnimAdd('singDOWNmiss', 'BF NOTE DOWN MISS');
+						quickAnimAdd('hey', 'BF HEY');
+	
+						quickAnimAdd('firstDeath', "BF dies");
+						animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+						quickAnimAdd('deathConfirm', "BF Dead confirm");
+	
+						animation.addByPrefix('scared', 'BF idle shaking', 24, true);
+	
+						loadOffsetFile(curCharacter);
+	
+						playAnim('idle');
+	
+						flipX = true;
+						
+						loadOffsetFile(curCharacter);
+					}	
+				case 'bf-scat':
+						if(Performance.getPref('low-bf')) {
+							tex = Paths.getSparrowAtlas('characters/BOYFRIEND_SCAT');
+							frames = tex;
+							quickAnimAdd('idle', 'BF idle dance');
+							quickAnimAdd('singUP', 'BF NOTE UP0');
+							quickAnimAdd('singLEFT', 'BF NOTE LEFT0');
+							quickAnimAdd('singRIGHT', 'BF NOTE RIGHT0');
+							quickAnimAdd('singDOWN', 'BF NOTE DOWN0');
+							quickAnimAdd('singUPmiss', 'BF NOTE UP MISS');
+							quickAnimAdd('singLEFTmiss', 'BF NOTE LEFT MISS');
+							quickAnimAdd('singRIGHTmiss', 'BF NOTE RIGHT MISS');
+							quickAnimAdd('singDOWNmiss', 'BF NOTE DOWN MISS');
+							quickAnimAdd('hey', 'BF HEY');
 		
+							quickAnimAdd('firstDeath', "BF dies");
+							animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+							quickAnimAdd('deathConfirm', "BF Dead confirm");
+		
+							animation.addByPrefix('scared', 'BF idle shaking', 24, true);
+		
+							loadOffsetFile(curCharacter);
+							//setGraphicSize(Std.int(width * 2));
+							//setPosition(0, 0);
+		
+							playAnim('idle');
+		
+							flipX = true;
+							
+							loadOffsetFile(curCharacter);
+						}
+						else {
+							tex = Paths.getSparrowAtlas('characters/BOYFRIEND_SCAT');
+							frames = tex;
+							quickAnimAdd('idle', 'BF idle dance');
+							quickAnimAdd('singUP', 'BF NOTE UP0');
+							quickAnimAdd('singLEFT', 'BF NOTE LEFT0');
+							quickAnimAdd('singRIGHT', 'BF NOTE RIGHT0');
+							quickAnimAdd('singDOWN', 'BF NOTE DOWN0');
+							quickAnimAdd('singUPmiss', 'BF NOTE UP MISS');
+							quickAnimAdd('singLEFTmiss', 'BF NOTE LEFT MISS');
+							quickAnimAdd('singRIGHTmiss', 'BF NOTE RIGHT MISS');
+							quickAnimAdd('singDOWNmiss', 'BF NOTE DOWN MISS');
+							quickAnimAdd('hey', 'BF HEY');
+		
+							quickAnimAdd('firstDeath', "BF dies");
+							animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+							quickAnimAdd('deathConfirm', "BF Dead confirm");
+		
+							animation.addByPrefix('scared', 'BF idle shaking', 24, true);
+		
+							loadOffsetFile(curCharacter);
+		
+							playAnim('idle');
+		
+							flipX = true;
+							
+							loadOffsetFile(curCharacter);
+						}
+
 			case 'bf-christmas':
 				tex = Paths.getSparrowAtlas('characters/bfChristmas');
 				frames = tex;
