@@ -294,10 +294,7 @@ class Character extends FlxSprite
 					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
 					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					antialiasing = true;
-
 					loadOffsetFile(curCharacter);
-
 					//setGraphicSize(Std.int(width * 2));
 
 					playAnim('idle');
@@ -325,10 +322,7 @@ class Character extends FlxSprite
 					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
 					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					//antialiasing = true;
-
-					loadOffsetFile(curCharacter);
-
+					loadOffsetFile(curCharacter)
 					//setGraphicSize(Std.int(width * 2));
 
 					playAnim('idle');
@@ -995,6 +989,12 @@ class Character extends FlxSprite
 
 			if (curCharacter == 'dad')
 				dadVar = 6.1;
+			if (curCharacter == 'crazybus')
+				dadVar = 6.1;
+			if (curCharacter == 'bigchungus')
+				dadVar = 6.1;
+			//if (curCharacter == 'dad')
+			//	dadVar = 6.1;
 			if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)
 			{
 				dance();
@@ -1009,7 +1009,7 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
-			case 'gf':
+			case 'gf' | 'gf-scat' | 'gf-pig':
 				if (animation.curAnim.name == 'hairFall' && animation.curAnim.finished)
 					playAnim('danceRight');
 			case 'pico-speaker':
@@ -1046,7 +1046,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-car' | 'gf-christmas' | 'gf-pixel' | 'gf-tankmen':
+				case 'gf' | 'gf-car' | 'gf-christmas' | 'gf-pixel' | 'gf-tankmen' | 'gf-pig' | 'gf-scat':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
@@ -1058,7 +1058,7 @@ class Character extends FlxSprite
 					}
 				case 'pico-speaker':
 					// do nothing LOL
-				case 'spooky':
+				case 'spooky' | 'bomberman':
 					danced = !danced;
 
 					if (danced)
