@@ -280,7 +280,7 @@ class Character extends FlxSprite
 				quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
 				quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-				loadOffsetFile('dad');
+				loadOffsetFile(curCharacter);
 
 				playAnim('idle');
 					

@@ -878,6 +878,10 @@ class PlayState extends MusicBeatState
 			dad.x += 110;
 			dad.y += 165;
 		}
+		else {
+			dad.x += 0
+			dad.y +=0
+		}
 
 		camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -1327,6 +1331,8 @@ class PlayState extends MusicBeatState
 					dad.dance();
 			}
 			else if (dad.curCharacter == 'spooky' && !dad.animation.curAnim.name.startsWith('sing'))
+				dad.dance();
+			else if (dad.curCharacter == 'bomberman' && !dad.animation.curAnim.name.startsWith('sing'))
 				dad.dance();
 
 			if (generatedMusic)
@@ -2092,7 +2098,7 @@ class PlayState extends MusicBeatState
 
 					dad.holdTimer = 0;
 
-					if (SONG.needsVoices && SONG.song.toLowerCase() != 'bopeebo')
+					if (SONG.needsVoices)
 						vocals.volume = 1;
 
 					daNote.kill();

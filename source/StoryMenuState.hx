@@ -24,7 +24,7 @@ class StoryMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
-		['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Dadbattle'],
+		['Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Dadbattle'],
 		['Spookeez', 'South', "Monster"],
 		['Pico', 'Philly', "Blammed"],
 		['Satin-Panties', "High", "Milf"],
