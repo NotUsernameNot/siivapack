@@ -655,7 +655,7 @@ class PlayState extends MusicBeatState
 		                  stageFront.active = false;
 		                  add(stageFront);
 
-		                  if(!Performance.getPref('low-stage')) {
+		                  if(Performance.getPref('low-stage')) {
 							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
 							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 							stageCurtains.updateHitbox();
@@ -666,7 +666,7 @@ class PlayState extends MusicBeatState
 							add(stageCurtains);
 						  }
 						  else {
-							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainsangry'));
 							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 							stageCurtains.updateHitbox();
 							stageCurtains.antialiasing = true;
@@ -1457,7 +1457,7 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
-		if (SONG.needsVoices && SONG.song.toLowerCase() != 'bopeebo')
+		if (SONG.needsVoices)
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();

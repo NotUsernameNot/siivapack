@@ -2,11 +2,13 @@ bf
 bf-scat
 bf-deez
 bf-crew
+crazybus
 dad
 dad-scat
 dad-imposter
 dad-imposter-alt
-big-chungus
+bigchungus
+bomberman
 gf
 gf-scat
 gf-pig

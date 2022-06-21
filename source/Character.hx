@@ -280,6 +280,8 @@ class Character extends FlxSprite
 				quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
 				quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
+				loadOffsetFile('dad');
+
 				playAnim('idle');
 					
 			case 'dad-imposter':
@@ -313,7 +315,7 @@ class Character extends FlxSprite
 
 					playAnim('idle');
 				}
-			case 'big-chungus':
+			case 'bigchungus':
 				if(Performance.getPref('low-dad')) {
 					tex = Paths.getSparrowAtlas('characters/BIG_CHUNGUS');
 					frames = tex;
@@ -323,7 +325,7 @@ class Character extends FlxSprite
 					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
 					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					antialiasing = true;
+					//antialiasing = true;
 
 					loadOffsetFile(curCharacter);
 
