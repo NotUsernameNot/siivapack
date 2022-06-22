@@ -879,8 +879,8 @@ class PlayState extends MusicBeatState
 			dad.y += 165;
 		}
 		else {
-			dad.x += 0
-			dad.y +=0
+			dad.x += 0;
+			dad.y +=0;
 		}
 
 		camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
