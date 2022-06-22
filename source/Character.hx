@@ -987,12 +987,12 @@ class Character extends FlxSprite
 
 			var dadVar:Float = 4;
 
-			if (curCharacter == 'dad')
+			if (curCharacter == 'dad' || curCharacter == 'crazybus' || curCharacter == 'bigchungus') 
 				dadVar = 6.1;
-			if (curCharacter == 'crazybus')
+			/*if (curCharacter == 'crazybus')
 				dadVar = 6.1;
 			if (curCharacter == 'bigchungus')
-				dadVar = 6.1;
+				dadVar = 6.1;*/
 			//if (curCharacter == 'dad')
 			//	dadVar = 6.1;
 			if (holdTimer >= Conductor.stepCrochet * dadVar * 0.001)

@@ -896,7 +896,7 @@ class PlayState extends MusicBeatState
 					tweenCamIn();
 				}
 
-			case "spooky":
+			case "spooky" | "bomberman":
 				dad.y += 200;
 			case "monster":
 				dad.y += 100;
@@ -923,7 +923,9 @@ class PlayState extends MusicBeatState
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case "tankman":
 				dad.y += 180;
-			
+			case 'bigchungus' | 'crazybus':
+				dad.x += 0;
+				dad.y +=0;
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -1330,10 +1332,10 @@ class PlayState extends MusicBeatState
 				if (!dad.animation.curAnim.name.startsWith('sing'))
 					dad.dance();
 			}
-			else if (dad.curCharacter == 'spooky' && !dad.animation.curAnim.name.startsWith('sing'))
+			else if (dad.curCharacter == 'spooky' || dad.curCharacter == 'bomberman' && !dad.animation.curAnim.name.startsWith('sing'))
 				dad.dance();
-			else if (dad.curCharacter == 'bomberman' && !dad.animation.curAnim.name.startsWith('sing'))
-				dad.dance();
+			//else if (dad.curCharacter == 'bomberman' && !dad.animation.curAnim.name.startsWith('sing'))
+			//	dad.dance();
 
 			if (generatedMusic)
 			{
@@ -2859,7 +2861,7 @@ class PlayState extends MusicBeatState
 				dad.dance();
 			}
 		}
-		else if (dad.curCharacter == 'spooky')
+		else if (dad.curCharacter == 'spooky' || dad.curCharacter == 'bomberman')
 		{
 			if (!dad.animation.curAnim.name.startsWith("sing"))
 			{
