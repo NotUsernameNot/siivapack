@@ -215,36 +215,69 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 				*/
-			case 'dad':
+			case 'dad' | 'crazybus':
 				// DAD ANIMATION LOADING CODE
-				if(Performance.getPref('low-dad')) {
-					tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_low');
-					frames = tex;
-					quickAnimAdd('idle', 'Dad idle dance');
-					quickAnimAdd('singUP', 'Dad Sing Note UP');
-					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
-					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
-					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+				if(curCharacter == 'crazybus') {
+					if(Performance.getPref('low-dad')) {
+						tex = Paths.getSparrowAtlas('characters/ur_father');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					loadOffsetFile(curCharacter);
+						loadOffsetFile(curCharacter);
 
-					setGraphicSize(Std.int(width * 2));
+						setGraphicSize(Std.int(width * 2));
 
-					playAnim('idle');
-				} 
-				else {
-					tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
-					frames = tex;
-					quickAnimAdd('idle', 'Dad idle dance');
-					quickAnimAdd('singUP', 'Dad Sing Note UP');
-					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
-					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
-					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+						playAnim('idle');
+					} 
+					else {
+						tex = Paths.getSparrowAtlas('characters/ur_father');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					loadOffsetFile(curCharacter);
+						loadOffsetFile(curCharacter);
 
-					playAnim('idle');
+						playAnim('idle');
+					}
 				}
+				else {
+					if(Performance.getPref('low-dad')) {
+						tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_low');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+
+						loadOffsetFile(curCharacter);
+
+						setGraphicSize(Std.int(width * 2));
+
+						playAnim('idle');
+					} 
+					else {
+						tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+
+						loadOffsetFile(curCharacter);
+
+						playAnim('idle');
+					}	
+				}
+				
 			case 'dad-scat':
 				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_SCAT');
 				frames = tex;
