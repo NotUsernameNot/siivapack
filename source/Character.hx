@@ -219,7 +219,7 @@ class Character extends FlxSprite
 				// DAD ANIMATION LOADING CODE
 				if(curCharacter == 'crazybus') {
 					if(Performance.getPref('low-dad')) {
-						tex = Paths.getSparrowAtlas('characters/ur_father');
+						tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_low');
 						frames = tex;
 						quickAnimAdd('idle', 'Dad idle dance');
 						quickAnimAdd('singUP', 'Dad Sing Note UP');
@@ -234,7 +234,7 @@ class Character extends FlxSprite
 						playAnim('idle');
 					} 
 					else {
-						tex = Paths.getSparrowAtlas('characters/ur_father');
+						tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
 						frames = tex;
 						quickAnimAdd('idle', 'Dad idle dance');
 						quickAnimAdd('singUP', 'Dad Sing Note UP');
@@ -304,19 +304,6 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 
-			case 'crazybus':
-				tex = Paths.getSparrowAtlas('characters/ur_father');
-				frames = tex;
-				quickAnimAdd('idle', 'Dad idle dance');
-				quickAnimAdd('singUP', 'Dad Sing Note UP');
-				quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
-				quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
-				quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
-
-				loadOffsetFile(curCharacter);
-
-				playAnim('idle');
-					
 			case 'dad-imposter':
 				if(Performance.getPref('low-dad')) {
 					tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_IMPOSTER_ALT');

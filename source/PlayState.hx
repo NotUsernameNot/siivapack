@@ -887,6 +887,10 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.player2)
 		{
+			case 'crazybus':
+				dad.visible = false;
+				dad.x += 0;
+				dad.y +=0;
 			case 'gf':
 				dad.setPosition(gf.x, gf.y);
 				gf.visible = false;
@@ -923,7 +927,7 @@ class PlayState extends MusicBeatState
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case "tankman":
 				dad.y += 180;
-			case 'bigchungus' | 'crazybus':
+			case 'bigchungus':
 				dad.x += 0;
 				dad.y +=0;
 		}
