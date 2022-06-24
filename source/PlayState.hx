@@ -750,7 +750,7 @@ class PlayState extends MusicBeatState
 		          }
 				  default:
 		          {
-						if(SONG.player2 == 'crazybus') {
+						if(SONG.song.toLowerCase() == 'fresh-itch.io-build') {
 							defaultCamZoom = 0.9;
 							curStage = 'stage';
 							var bg:BGSprite = new BGSprite('crazyback', -600, -200, 0.9, 0.9);

@@ -216,65 +216,98 @@ class Character extends FlxSprite
 				playAnim('danceRight');
 				*/
 			case 'dad':
-				// DAD ANIMATION LOADING CODE
-				if(Performance.getPref('low-dad')) {
-					tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_low');
-					frames = tex;
-					quickAnimAdd('idle', 'Dad idle dance');
-					quickAnimAdd('singUP', 'Dad Sing Note UP');
-					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
-					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
-					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+				// the character image will be changed based on the song. I did this because add more characters will cause new songs to freeze.
+				//I have no idea why the other custom characters work.
+				var dadType:String = 'dad';
+				if(PlayState.SONG.song.toLowerCase() == 'fresh-in-game-version') {
+					if(Performance.getPref('low-dad')) {
+						tex = Paths.getSparrowAtlas('characters/bigchungus');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					loadOffsetFile(curCharacter);
+						loadOffsetFile(curCharacter);
 
-					setGraphicSize(Std.int(width * 2));
+						//setGraphicSize(Std.int(width * 2));
 
-					playAnim('idle');
-				} 
-				else {
-					tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
-					frames = tex;
-					quickAnimAdd('idle', 'Dad idle dance');
-					quickAnimAdd('singUP', 'Dad Sing Note UP');
-					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
-					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
-					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+						playAnim('idle');
+					} 
+					else {
+						tex = Paths.getSparrowAtlas('characters/bigchungus');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					loadOffsetFile(curCharacter);
+						loadOffsetFile(curCharacter);
 
-					playAnim('idle');
+						playAnim('idle');
+					}
 				}
+				else if(PlayState.SONG.song.toLowerCase() == 'fresh-itch.io-build') {
+					if(Performance.getPref('low-dad')) {
+						tex = Paths.getSparrowAtlas('characters/ur_father');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-			case 'crazybus':
-				// DAD ANIMATION LOADING CODE
-				if(Performance.getPref('low-dad')) {
-					tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_low');
-					frames = tex;
-					quickAnimAdd('idle', 'Dad idle dance');
-					quickAnimAdd('singUP', 'Dad Sing Note UP');
-					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
-					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
-					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+						loadOffsetFile(curCharacter);
 
-					loadOffsetFile(curCharacter);
+						setGraphicSize(Std.int(width * 2));
 
-					setGraphicSize(Std.int(width * 2));
+						playAnim('idle');
+					} 
+					else {
+						tex = Paths.getSparrowAtlas('characters/ur_father');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					playAnim('idle');
-				} 
+						loadOffsetFile(curCharacter);
+
+						playAnim('idle');
+					}	
+				}
 				else {
-					tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
-					frames = tex;
-					quickAnimAdd('idle', 'Dad idle dance');
-					quickAnimAdd('singUP', 'Dad Sing Note UP');
-					quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
-					quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
-					quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+					if(Performance.getPref('low-dad')) {
+						tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST_low');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
 
-					loadOffsetFile(curCharacter);
+						loadOffsetFile(curCharacter);
 
-					playAnim('idle');
+						setGraphicSize(Std.int(width * 2));
+
+						playAnim('idle');
+					} 
+					else {
+						tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+
+						loadOffsetFile(curCharacter);
+
+						playAnim('idle');
+					}
 				}
 				
 			case 'dad-scat':
@@ -345,19 +378,34 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 			case 'spooky':
-				tex = Paths.getSparrowAtlas('characters/spooky_kids_assets');
-				frames = tex;
-				quickAnimAdd('singUP', 'spooky UP NOTE');
-				quickAnimAdd('singDOWN', 'spooky DOWN note');
-				quickAnimAdd('singLEFT', 'note sing left');
-				quickAnimAdd('singRIGHT', 'spooky sing right');
-				animation.addByIndices('danceLeft', 'spooky dance idle', [0, 2, 6], "", 12, false);
-				animation.addByIndices('danceRight', 'spooky dance idle', [8, 10, 12, 14], "", 12, false);
+				if(PlayState.SONG.song.toLowerCase() == 'fresh-alternative-version') {
+					tex = Paths.getSparrowAtlas('characters/bomberman');
+					frames = tex;
+					quickAnimAdd('singUP', 'spooky UP NOTE');
+					quickAnimAdd('singDOWN', 'spooky DOWN note');
+					quickAnimAdd('singLEFT', 'note sing left');
+					quickAnimAdd('singRIGHT', 'spooky sing right');
+					animation.addByIndices('danceLeft', 'spooky dance idle', [0, 2, 6], "", 12, false);
+					animation.addByIndices('danceRight', 'spooky dance idle', [8, 10, 12, 14], "", 12, false);
 
-				loadOffsetFile(curCharacter);
+					loadOffsetFile(curCharacter);
 
-				playAnim('danceRight');
-			
+					playAnim('danceRight');
+				}
+				else {
+					tex = Paths.getSparrowAtlas('characters/spooky_kids_assets');
+					frames = tex;
+					quickAnimAdd('singUP', 'spooky UP NOTE');
+					quickAnimAdd('singDOWN', 'spooky DOWN note');
+					quickAnimAdd('singLEFT', 'note sing left');
+					quickAnimAdd('singRIGHT', 'spooky sing right');
+					animation.addByIndices('danceLeft', 'spooky dance idle', [0, 2, 6], "", 12, false);
+					animation.addByIndices('danceRight', 'spooky dance idle', [8, 10, 12, 14], "", 12, false);
+
+					loadOffsetFile(curCharacter);
+
+					playAnim('danceRight');
+				}
 			case 'bomberman':
 				tex = Paths.getSparrowAtlas('characters/bomberman');
 				frames = tex;
