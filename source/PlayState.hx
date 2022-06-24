@@ -753,10 +753,10 @@ class PlayState extends MusicBeatState
 						if(SONG.player2 == 'crazybus') {
 							defaultCamZoom = 0.9;
 							curStage = 'stage';
-							var bg:BGSprite = new BGSprite('characters/crazyback', -600, -200, 0.9, 0.9);
+							var bg:BGSprite = new BGSprite('crazyback', -600, -200, 0.9, 0.9);
 							add(bg);
   
-							var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('characters/crazyfront'));
+							var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('crazyfront'));
 							stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 							stageFront.updateHitbox();
 							stageFront.antialiasing = true;
