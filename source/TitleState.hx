@@ -46,6 +46,8 @@ class TitleState extends MusicBeatState
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
 
+	public static var isFreeplay:Bool = false;
+
 	var curWacky:Array<String> = [];
 
 	var wackyImage:FlxSprite;

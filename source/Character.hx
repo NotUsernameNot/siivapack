@@ -40,6 +40,52 @@ class Character extends FlxSprite
 		{
 			case 'gf':
 				// GIRLFRIEND CODE
+				isNormalDad = false;
+				if(PlayState.SONG.song.toLowerCase() == 'tutorial-beta-mix') {
+					icon = 'lady';
+					if(Performance.getPref('low-gf')) {
+						tex = Paths.getSparrowAtlas('characters/yankin');
+						frames = tex;
+						quickAnimAdd('cheer', 'GF Cheer');
+						quickAnimAdd('singLEFT', 'GF left note');
+						quickAnimAdd('singRIGHT', 'GF Right Note');
+						quickAnimAdd('singUP', 'GF Up Note');
+						quickAnimAdd('singDOWN', 'GF Down Note');
+						animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, true);
+						animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+						animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+						animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+						animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+						animation.addByPrefix('scared', 'GF FEAR', 24, true);
+
+						loadOffsetFile(curCharacter);
+
+						//setGraphicSize(Std.int(width * 2));
+						//setPosition(0, 0);
+
+						playAnim('danceRight');
+					}			
+					else {
+						tex = Paths.getSparrowAtlas('characters/yankin');
+						frames = tex;
+						quickAnimAdd('cheer', 'GF Cheer');
+						quickAnimAdd('singLEFT', 'GF left note');
+						quickAnimAdd('singRIGHT', 'GF Right Note');
+						quickAnimAdd('singUP', 'GF Up Note');
+						quickAnimAdd('singDOWN', 'GF Down Note');
+						animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, true);
+						animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+						animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+						animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+						animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+						animation.addByPrefix('scared', 'GF FEAR', 24, true);
+
+						loadOffsetFile(curCharacter);
+
+						playAnim('danceRight');
+					}
+				}
+				isNormalDad = true;
 				if(PlayState.curStage == 'harkinians-castle') {
 					if(Performance.getPref('low-gf')) {
 						tex = Paths.getSparrowAtlas('characters/ZELDA');
@@ -83,7 +129,7 @@ class Character extends FlxSprite
 						playAnim('danceRight');
 					}
 				}
-				if(PlayState.SONG.song.toLowerCase() == 'dadbattle-jp-version') {
+				else if(PlayState.SONG.song.toLowerCase() == 'dadbattle-jp-version') {
 					if(Performance.getPref('low-gf')) {
 						tex = Paths.getSparrowAtlas('characters/mako');
 						frames = tex;
@@ -344,6 +390,37 @@ class Character extends FlxSprite
 				}
 				else if(PlayState.SONG.song.toLowerCase() == 'fresh-itch.io-build') {
 					icon = 'crazybus';
+					if(Performance.getPref('low-dad')) {
+						tex = Paths.getSparrowAtlas('characters/ur_father');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+
+						loadOffsetFile(curCharacter);
+
+						setGraphicSize(Std.int(width * 2));
+
+						playAnim('idle');
+					} 
+					else {
+						tex = Paths.getSparrowAtlas('characters/ur_father');
+						frames = tex;
+						quickAnimAdd('idle', 'Dad idle dance');
+						quickAnimAdd('singUP', 'Dad Sing Note UP');
+						quickAnimAdd('singRIGHT', 'Dad Sing Note RIGHT');
+						quickAnimAdd('singDOWN', 'Dad Sing Note DOWN');
+						quickAnimAdd('singLEFT', 'Dad Sing Note LEFT');
+
+						loadOffsetFile(curCharacter);
+
+						playAnim('idle');
+					}	
+				}
+				else if(PlayState.SONG.song.toLowerCase() == 'test') {
+					icon = 'bf-pixel';
 					if(Performance.getPref('low-dad')) {
 						tex = Paths.getSparrowAtlas('characters/ur_father');
 						frames = tex;

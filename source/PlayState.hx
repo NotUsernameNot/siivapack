@@ -729,6 +729,30 @@ class PlayState extends MusicBeatState
 		                  var bg:BGSprite = new BGSprite('castleback', -600, -200, 0.9, 0.9);
 		                  add(bg);
 		          }
+				  case 'test':
+				  {
+					   	  defaultCamZoom = 0.9;
+						  curStage = 'stage';
+						  var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+						  add(bg);
+  
+						  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+					      stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					      stageFront.updateHitbox();
+						  stageFront.antialiasing = true;
+					      stageFront.scrollFactor.set(0.9, 0.9);
+						  stageFront.active = false;
+						  add(stageFront);
+
+						  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainsbf'));
+						  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+						  stageCurtains.updateHitbox();
+						  stageCurtains.antialiasing = true;
+						  stageCurtains.scrollFactor.set(1.3, 1.3);
+						  stageCurtains.active = false;
+
+						  add(stageCurtains);	
+				  }
 				  case 'bopeebo-in-game-version':
 				  {
 					   	  defaultCamZoom = 0.9;
@@ -827,17 +851,7 @@ class PlayState extends MusicBeatState
   
 								add(stageCurtains);
 							}
-							else {
-								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-								stageCurtains.updateHitbox();
-								stageCurtains.antialiasing = true;
-								stageCurtains.scrollFactor.set(1.3, 1.3);
-								stageCurtains.active = false;
-  
-								add(stageCurtains);	
-							};	
-						}  
+						}
 						else {
 							defaultCamZoom = 0.9;
 							curStage = 'stage';
@@ -988,9 +1002,9 @@ class PlayState extends MusicBeatState
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
-		if(Performance.getPref('low-bf') && Character.isNormalDad) {
-			boyfriend.x += 60;
-			boyfriend.y += 70;
+		if(Performance.getPref('low-bf') && Character.isNormalBF) {
+			boyfriend.x += 90;
+			boyfriend.y -= 70;
 		}
 
 		// REPOSITIONING PER STAGE
@@ -2217,7 +2231,7 @@ class PlayState extends MusicBeatState
 
 				if (doKill)
 				{
-					if (daNote.tooLate || !daNote.wasGoodHit)
+					if (daNote.tooLate || !daNote.wasGoodHit && !daNote.mustPress/*&& SONG.song.toLowerCase() != 'dadbattle-in-game-mix'*/)
 					{
 						health -= 0.0475;
 						vocals.volume = 0;

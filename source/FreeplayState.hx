@@ -17,6 +17,9 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
+	
+	public static var iconImage:String = 'face';
+
 	var songs:Array<SongMetadata> = [];
 
 	var selector:FlxText;
@@ -64,6 +67,8 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
         
+		TitleState.isFreeplay = true;
+
 		if (StoryMenuState.weekUnlocked[2])
 			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Fresh-Ost-Version', 'Fresh-Poop-Version', 'Fresh-Week-7-Update', 'Dadbattle', 'Dadbattle-In-Game-Mix', 'Dadbattle-In-Game-Version', 'Dadbattle-Jp-Version'], 1, ['dad']);
 
@@ -85,6 +90,8 @@ class FreeplayState extends MusicBeatState
 		if (StoryMenuState.weekUnlocked[7])
 			addWeek(['Ugh', 'Guns', 'Stress'], 7, ['tankman']);
 
+		addWeek(['Test', 'Test-In-Game-Version'], 8, ['bf-pixel']);
+
 		// LOAD MUSIC
 
 		// LOAD CHARACTERS
@@ -102,11 +109,41 @@ class FreeplayState extends MusicBeatState
 			songText.targetY = i;
 			grpSongs.add(songText);
 
-			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
+			//Character.hx's fault ! !
+			if(songs[curSelected].songName.toLowerCase() == 'tutorial-beta-mix')
+				iconImage = 'lady';
+			if(songs[curSelected].songName.toLowerCase() == 'bopeebo-itch.io-build')
+				iconImage = 'dad-scat';
+			if(songs[curSelected].songName.toLowerCase() == 'fresh')
+				iconImage = 'dad-imposter';
+			if(songs[curSelected].songName.toLowerCase() == 'fresh-in-game-version')
+				iconImage = 'bigchungus';
+			if(songs[curSelected].songName.toLowerCase() == 'fresh-itch.io-build')
+				iconImage = 'crazybus';
+			if(songs[curSelected].songName.toLowerCase() == 'fresh-alternative-version')
+				iconImage = 'bomberman';
+			if(songs[curSelected].songName.toLowerCase() == 'fresh-ost-version')
+				iconImage = 'doubledad';
+			if(songs[curSelected].songName.toLowerCase() == 'fresh-poop-version')
+				iconImage = 'harkinian';
+			if(songs[curSelected].songName.toLowerCase() == 'fresh-week-7-update')
+				iconImage = 'plok';
+			if(songs[curSelected].songName.toLowerCase() == 'dadbattle-in-game-verion')
+				iconImage = 'mario';
+			if(songs[curSelected].songName.toLowerCase() == 'dadbatle-jp-version')
+				iconImage = 'ragyo';
+			else
+				iconImage = songs[i].songCharacter;
+
+			var icon:HealthIcon = new HealthIcon(iconImage);
 			icon.sprTracker = songText;
 
 			// using a FlxGroup is too much fuss!
 			iconArray.push(icon);
+			if(songs[curSelected].songName.toLowerCase() == 'dadbattle-in-game-mix')
+				icon.visible = false;
+			else
+				icon.visible = true;
 			add(icon);
 
 			// songText.x += 40;
@@ -226,6 +263,7 @@ class FreeplayState extends MusicBeatState
 
 		if (accepted)
 		{
+			
 			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 
 			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
@@ -234,6 +272,7 @@ class FreeplayState extends MusicBeatState
 
 			PlayState.storyWeek = songs[curSelected].week;
 			trace('CUR WEEK' + PlayState.storyWeek);
+			TitleState.isFreeplay = false;
 			LoadingState.loadAndSwitchState(new PlayState());
 		}
 	}
