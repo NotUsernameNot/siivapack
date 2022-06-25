@@ -40,9 +40,14 @@ class HealthIcon extends FlxSprite
 
 	public function changeIcon(char:String)
 	{
-		if (char != 'bf-pixel' && char != 'bf-old')
+		if (char != 'bf-pixel' && char != 'bf-old' && char != 'bf-crew' && char != 'bf-scat' && char != 'dad-imposter' && char != 'dad-scat')
 			char = char.split('-')[0].trim();
-
+		if(char == 'dad-imposter-alt')
+			char = 'dad-imposter';
+		if(isPlayer && !Character.isNormalBF)
+			char = Character.iconBF;
+		if(!isPlayer && !Character.isNormalDad)
+			char = Character.icon;
 		if (char != this.char)
 		{
 			if (animation.getByName(char) == null)

@@ -244,7 +244,7 @@ class Note extends FlxSprite
 		{
 			canBeHit = false;
 
-			if (strumTime <= Conductor.songPosition)
+			if (strumTime <= Conductor.songPosition && PlayState.SONG.song.toLowerCase() != 'dadbattle-in-game-mix')
 				wasGoodHit = true;
 		}
 
