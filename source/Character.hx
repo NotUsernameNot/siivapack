@@ -420,7 +420,7 @@ class Character extends FlxSprite
 					}	
 				}
 				else if(PlayState.SONG.song.toLowerCase() == 'test') {
-					icon = 'bf-pixel';
+					//icon = 'bf-pixel';
 					if(Performance.getPref('low-dad')) {
 						tex = Paths.getSparrowAtlas('characters/ur_father');
 						frames = tex;

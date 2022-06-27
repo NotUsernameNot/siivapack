@@ -44,11 +44,11 @@ class HealthIcon extends FlxSprite
 			char = char.split('-')[0].trim();
 		if(char == 'dad-imposter-alt')
 			char = 'dad-imposter';
-		if(isPlayer && !Character.isNormalBF && !TitleState.isFreeplay)
+		if(isPlayer && !Character.isNormalBF && !FreeplayState.isFreeplay)
 			char = Character.iconBF;
-		if(!isPlayer && !Character.isNormalDad && !TitleState.isFreeplay)
+		if(!isPlayer && !Character.isNormalDad && !FreeplayState.isFreeplay)
 			char = Character.icon;
-		if(TitleState.isFreeplay)
+		if(FreeplayState.isFreeplay)
 			char = FreeplayState.iconImage;
 		if (char != this.char)
 		{

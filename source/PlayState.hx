@@ -2187,7 +2187,7 @@ class PlayState extends MusicBeatState
 
 				if (!daNote.mustPress && daNote.wasGoodHit)
 				{
-					if (SONG.song != 'Tutorial')
+					if (SONG.song != 'Tutorial' && SONG.song.toLowerCase() != 'tutorial-beta-mix')
 						camZooming = true;
 
 					var altAnim:String = "";
@@ -2231,7 +2231,7 @@ class PlayState extends MusicBeatState
 
 				if (doKill)
 				{
-					if (daNote.tooLate || !daNote.wasGoodHit && !daNote.mustPress/*&& SONG.song.toLowerCase() != 'dadbattle-in-game-mix'*/)
+					if (daNote.tooLate || !daNote.wasGoodHit && daNote.mustPress/*&& SONG.song.toLowerCase() != 'dadbattle-in-game-mix'*/)
 					{
 						health -= 0.0475;
 						vocals.volume = 0;
@@ -2538,7 +2538,7 @@ class PlayState extends MusicBeatState
 			if (dad.curCharacter == 'mom')
 				vocals.volume = 1;
 
-			if (SONG.song.toLowerCase() == 'tutorial')
+			if (SONG.song.toLowerCase() == 'tutorial' || SONG.song.toLowerCase() == 'tutorial-beta-mix')
 			{
 				tweenCamIn();
 			}
@@ -2562,7 +2562,7 @@ class PlayState extends MusicBeatState
 					camFollow.y = boyfriend.getMidpoint().y - 200;
 			}
 
-			if (SONG.song.toLowerCase() == 'tutorial')
+			if (SONG.song.toLowerCase() == 'tutorial' || SONG.song.toLowerCase() == 'tutorial-beta-mix')
 			{
 				FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut});
 			}
@@ -2983,12 +2983,12 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (curBeat % 8 == 7 && curSong == 'Bopeebo' || curSong == 'Bopeebo Beta Mix' || curSong == 'Bopeebo Newgrounds Build' || curSong == 'Bopeebo Extended Version')
+		if (curBeat % 8 == 7 && curSong == 'Bopeebo' || curSong == 'Bopeebo-Beta-Mix' || curSong == 'Bopeebo-Newgrounds-Build' || curSong == 'Bopeebo-Extended-Version')
 		{
 			boyfriend.playAnim('hey', true);
 		}
 
-		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
+		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' || SONG.song == 'Tutorial-Beta-Mix' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 		{
 			boyfriend.playAnim('hey', true);
 			dad.playAnim('cheer', true);

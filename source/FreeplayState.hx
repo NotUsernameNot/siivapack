@@ -17,7 +17,7 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	
+	public static var isFreeplay:Bool = false;
 	public static var iconImage:String = 'face';
 
 	var songs:Array<SongMetadata> = [];
@@ -25,7 +25,7 @@ class FreeplayState extends MusicBeatState
 	var selector:FlxText;
 	var curSelected:Int = 0;
 	var curDifficulty:Int = 0;
-
+	
 	var bg:FlxSprite;
 	var scoreBG:FlxSprite;
 	var scoreText:FlxText;
@@ -67,7 +67,7 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
         
-		TitleState.isFreeplay = true;
+		isFreeplay = true;
 
 		if (StoryMenuState.weekUnlocked[2])
 			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Fresh-Ost-Version', 'Fresh-Poop-Version', 'Fresh-Week-7-Update', 'Dadbattle', 'Dadbattle-In-Game-Mix', 'Dadbattle-In-Game-Version', 'Dadbattle-Jp-Version'], 1, ['dad']);
@@ -258,6 +258,7 @@ class FreeplayState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound("cancelMenu"));
+			isFreeplay = false;
 			FlxG.switchState(new MainMenuState());
 		}
 
@@ -272,7 +273,7 @@ class FreeplayState extends MusicBeatState
 
 			PlayState.storyWeek = songs[curSelected].week;
 			trace('CUR WEEK' + PlayState.storyWeek);
-			TitleState.isFreeplay = false;
+			isFreeplay = false;
 			LoadingState.loadAndSwitchState(new PlayState());
 		}
 	}
