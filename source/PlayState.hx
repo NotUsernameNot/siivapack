@@ -729,30 +729,6 @@ class PlayState extends MusicBeatState
 		                  var bg:BGSprite = new BGSprite('castleback', -600, -200, 0.9, 0.9);
 		                  add(bg);
 		          }
-				  case 'test':
-				  {
-					   	  defaultCamZoom = 0.9;
-						  curStage = 'stage';
-						  var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
-						  add(bg);
-  
-						  var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
-					      stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-					      stageFront.updateHitbox();
-						  stageFront.antialiasing = true;
-					      stageFront.scrollFactor.set(0.9, 0.9);
-						  stageFront.active = false;
-						  add(stageFront);
-
-						  var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainsbf'));
-						  stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-						  stageCurtains.updateHitbox();
-						  stageCurtains.antialiasing = true;
-						  stageCurtains.scrollFactor.set(1.3, 1.3);
-						  stageCurtains.active = false;
-
-						  add(stageCurtains);	
-				  }
 				  case 'bopeebo-in-game-version':
 				  {
 					   	  defaultCamZoom = 0.9;
@@ -827,6 +803,7 @@ class PlayState extends MusicBeatState
 		          }
 				  default:
 		          {
+						var men:String = 'stagecurtains';
 						if(SONG.song.toLowerCase() == 'fresh-itch.io-build') {
 							defaultCamZoom = 0.9;
 							curStage = 'stage';
@@ -866,7 +843,7 @@ class PlayState extends MusicBeatState
 							stageFront.active = false;
 							add(stageFront);
 							
-							if(Performance.getPref('low-stage')) {
+							if(Performance.getPref('low-stage') && SONG.song.toLowerCase() != 'test') {
 								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
 								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 								stageCurtains.updateHitbox();
@@ -876,8 +853,10 @@ class PlayState extends MusicBeatState
   
 								add(stageCurtains);
 							}
-							else {
-								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
+							else {		
+								if(SONG.song.toLowerCase() == 'test')
+									men = 'stagecurtainsbf';
+								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(men));
 								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 								stageCurtains.updateHitbox();
 								stageCurtains.antialiasing = true;
@@ -1542,7 +1521,7 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
-		if (SONG.needsVoices)
+		if (SONG.needsVoices && SONG.song.toLowerCase() != 'test')
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();
@@ -2187,7 +2166,9 @@ class PlayState extends MusicBeatState
 
 				if (!daNote.mustPress && daNote.wasGoodHit)
 				{
-					if (SONG.song != 'Tutorial' && SONG.song.toLowerCase() != 'tutorial-beta-mix')
+					if (SONG.song != 'Tutorial')
+						camZooming = true;
+					if (SONG.song != 'Tutorial-Beta-Mix')
 						camZooming = true;
 
 					var altAnim:String = "";
@@ -2983,12 +2964,29 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (curBeat % 8 == 7 && curSong == 'Bopeebo' || curSong == 'Bopeebo-Beta-Mix' || curSong == 'Bopeebo-Newgrounds-Build' || curSong == 'Bopeebo-Extended-Version')
+		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
+		{
+			boyfriend.playAnim('hey', true);
+		}
+		if (curBeat % 8 == 7 && curSong == 'Bopeebo-Beta-Mix')
+		{
+			boyfriend.playAnim('hey', true);
+		}
+		if (curBeat % 8 == 7 && curSong == 'Bopeebo-Extended-Version')
+		{
+			boyfriend.playAnim('hey', true);
+		}
+		if (curBeat % 8 == 7 && curSong == 'Bopeebo-Newgrounds-Build')
 		{
 			boyfriend.playAnim('hey', true);
 		}
 
-		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' || SONG.song == 'Tutorial-Beta-Mix' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
+		if (curBeat % 16 == 15 && SONG.song == 'Tutorial' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
+		{
+			boyfriend.playAnim('hey', true);
+			dad.playAnim('cheer', true);
+		}
+		if (curBeat % 16 == 15 && SONG.song == 'Tutorial-Beta-Mix' && dad.curCharacter == 'gf' && curBeat > 16 && curBeat < 48)
 		{
 			boyfriend.playAnim('hey', true);
 			dad.playAnim('cheer', true);

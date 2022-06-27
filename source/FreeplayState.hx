@@ -110,27 +110,27 @@ class FreeplayState extends MusicBeatState
 			grpSongs.add(songText);
 
 			//Character.hx's fault ! !
-			if(songs[curSelected].songName.toLowerCase() == 'tutorial-beta-mix')
+			if(songs[i].songName.toLowerCase() == 'tutorial-beta-mix')
 				iconImage = 'lady';
-			if(songs[curSelected].songName.toLowerCase() == 'bopeebo-itch.io-build')
+			if(songs[i].songName.toLowerCase() == 'bopeebo-itch.io-build')
 				iconImage = 'dad-scat';
-			if(songs[curSelected].songName.toLowerCase() == 'fresh')
+			if(songs[i].songName.toLowerCase() == 'fresh')
 				iconImage = 'dad-imposter';
-			if(songs[curSelected].songName.toLowerCase() == 'fresh-in-game-version')
+			if(songs[i].songName.toLowerCase() == 'fresh-in-game-version')
 				iconImage = 'bigchungus';
-			if(songs[curSelected].songName.toLowerCase() == 'fresh-itch.io-build')
+			if(songs[i].songName.toLowerCase() == 'fresh-itch.io-build')
 				iconImage = 'crazybus';
-			if(songs[curSelected].songName.toLowerCase() == 'fresh-alternative-version')
+			if(songs[i].songName.toLowerCase() == 'fresh-alternative-version')
 				iconImage = 'bomberman';
-			if(songs[curSelected].songName.toLowerCase() == 'fresh-ost-version')
+			if(songs[i].songName.toLowerCase() == 'fresh-ost-version')
 				iconImage = 'doubledad';
-			if(songs[curSelected].songName.toLowerCase() == 'fresh-poop-version')
+			if(songs[i].songName.toLowerCase() == 'fresh-poop-version')
 				iconImage = 'harkinian';
-			if(songs[curSelected].songName.toLowerCase() == 'fresh-week-7-update')
+			if(songs[i].songName.toLowerCase() == 'fresh-week-7-update')
 				iconImage = 'plok';
-			if(songs[curSelected].songName.toLowerCase() == 'dadbattle-in-game-verion')
+			if(songs[i].songName.toLowerCase() == 'dadbattle-in-game-verion')
 				iconImage = 'mario';
-			if(songs[curSelected].songName.toLowerCase() == 'dadbatle-jp-version')
+			if(songs[i].songName.toLowerCase() == 'dadbatle-jp-version')
 				iconImage = 'ragyo';
 			else
 				iconImage = songs[i].songCharacter;
