@@ -48,8 +48,6 @@ class HealthIcon extends FlxSprite
 			char = Character.iconBF;
 		if(!isPlayer && !Character.isNormalDad && !FreeplayState.isFreeplay)
 			char = Character.icon;
-		if(FreeplayState.isFreeplay)
-			char = FreeplayState.iconImage;
 		if (char != this.char)
 		{
 			if (animation.getByName(char) == null)

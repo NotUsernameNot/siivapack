@@ -854,8 +854,9 @@ class PlayState extends MusicBeatState
 								add(stageCurtains);
 							}
 							else {		
-								if(SONG.song.toLowerCase() == 'test')
+								if(SONG.song.toLowerCase() == 'test') {
 									men = 'stagecurtainsbf';
+								}
 								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(men));
 								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 								stageCurtains.updateHitbox();
@@ -1521,7 +1522,7 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
-		if (SONG.needsVoices && SONG.song.toLowerCase() != 'test')
+		if (SONG.needsVoices)
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 		else
 			vocals = new FlxSound();

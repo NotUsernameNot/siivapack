@@ -4,6 +4,7 @@ package;
 import Discord.DiscordClient;
 #end
 import flash.text.TextField;
+import ui.Prompt;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
@@ -70,7 +71,7 @@ class FreeplayState extends MusicBeatState
 		isFreeplay = true;
 
 		if (StoryMenuState.weekUnlocked[2])
-			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Fresh-Ost-Version', 'Fresh-Poop-Version', 'Fresh-Week-7-Update', 'Dadbattle', 'Dadbattle-In-Game-Mix', 'Dadbattle-In-Game-Version', 'Dadbattle-Jp-Version'], 1, ['dad']);
+			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Fresh-Ost-Version', 'Fresh-Poop-Version', 'Fresh-Week-7-Update', 'Dadbattle', 'Dadbattle-In-Game-Mix', 'Dadbattle-In-Game-Version', 'Dadbattle-Jp-Version'], 1, ['dad', 'dad', 'dad', 'dad', 'dad-scat', 'dad-imposter', 'bigchungus', 'crazybus', 'bomberman', 'dad', 'doubledad', 'harkinian', 'plok', 'dad', 'mario', 'ragyo']);
 
 		if (StoryMenuState.weekUnlocked[2])
 			addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky', 'spooky', 'monster']);
@@ -110,7 +111,7 @@ class FreeplayState extends MusicBeatState
 			grpSongs.add(songText);
 
 			//Character.hx's fault ! !
-			if(songs[i].songName.toLowerCase() == 'tutorial-beta-mix')
+			/*if(songs[i].songName.toLowerCase() == 'tutorial-beta-mix')
 				iconImage = 'lady';
 			if(songs[i].songName.toLowerCase() == 'bopeebo-itch.io-build')
 				iconImage = 'dad-scat';
@@ -133,9 +134,9 @@ class FreeplayState extends MusicBeatState
 			if(songs[i].songName.toLowerCase() == 'dadbatle-jp-version')
 				iconImage = 'ragyo';
 			else
-				iconImage = songs[i].songCharacter;
+				iconImage = songs[i].songCharacter;*/
 
-			var icon:HealthIcon = new HealthIcon(iconImage);
+			var icon:HealthIcon = new HealthIcon(songs[i].songCharacter);
 			icon.sprTracker = songText;
 
 			// using a FlxGroup is too much fuss!
@@ -254,6 +255,17 @@ class FreeplayState extends MusicBeatState
 			changeDiff(-1);
 		if (controls.UI_RIGHT_P)
 			changeDiff(1);
+
+		if (FlxG.keys.justPressed.SEVEN) {
+			var prompt:Prompt;
+
+			prompt = new Prompt('\nPress any key to morbin\n\n\n\n    Escape to nerdin', None);
+			prompt.create();
+			prompt.createBgFromMargin(100, 0xFFFAFD6D);
+			prompt.back.scrollFactor.set(0, 0);
+			prompt.exists = false;
+			add(prompt);
+		}
 
 		if (controls.BACK)
 		{

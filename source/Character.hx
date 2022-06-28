@@ -41,7 +41,7 @@ class Character extends FlxSprite
 			case 'gf':
 				// GIRLFRIEND CODE
 				isNormalDad = false;
-				if(PlayState.SONG.song.toLowerCase() == 'tutorial-beta-mix' && PlayState.SONG.player2 == 'gf') {
+				if(PlayState.SONG.song.toLowerCase() == 'tutorial-beta-mix') {
 					icon = 'lady';
 					tex = Paths.getSparrowAtlas('characters/yankin');
 					frames = tex;
