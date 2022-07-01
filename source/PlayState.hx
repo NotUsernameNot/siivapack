@@ -767,7 +767,6 @@ class PlayState extends MusicBeatState
 				  }
 		          case 'bopeebo-beta-mix':
 		          {
-		                  defaultCamZoom = 1.10;
 						  curStage = 'stage';
 		                  var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 		                  add(bg);
@@ -818,8 +817,8 @@ class PlayState extends MusicBeatState
 							stageFront.active = false;
 							add(stageFront);
   
-							if(Performance.getPref('low-stage')) {
-								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
+							if(!Performance.getPref('low-stage')) {
+								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
 								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 								stageCurtains.updateHitbox();
 								stageCurtains.antialiasing = true;
@@ -828,6 +827,29 @@ class PlayState extends MusicBeatState
   
 								add(stageCurtains);
 							}
+						}
+						else if(SONG.song.toLowerCase() == 'test') {
+							defaultCamZoom = 0.9;
+							curStage = 'stage';
+							var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+							add(bg);
+  
+							var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
+							stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+							stageFront.updateHitbox();
+							stageFront.antialiasing = true;
+							stageFront.scrollFactor.set(0.9, 0.9);
+							stageFront.active = false;
+							add(stageFront);
+  
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtainsbf'));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
+  
+							add(stageCurtains);
 						}
 						else {
 							defaultCamZoom = 0.9;
@@ -843,7 +865,7 @@ class PlayState extends MusicBeatState
 							stageFront.active = false;
 							add(stageFront);
 							
-							if(Performance.getPref('low-stage') && SONG.song.toLowerCase() != 'test') {
+							if(Performance.getPref('low-stage')) {
 								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(lowStage));
 								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 								stageCurtains.updateHitbox();
@@ -854,10 +876,7 @@ class PlayState extends MusicBeatState
 								add(stageCurtains);
 							}
 							else {		
-								if(SONG.song.toLowerCase() == 'test') {
-									men = 'stagecurtainsbf';
-								}
-								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image(men));
+								var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
 								stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 								stageCurtains.updateHitbox();
 								stageCurtains.antialiasing = true;
@@ -870,6 +889,15 @@ class PlayState extends MusicBeatState
 						}  
 		          }
               }
+
+		switch (SONG.song.toLowerCase())
+		{
+			case 'bopeebo-beta-mix':
+				defaultCamZoom = 1.10;
+			case 'fresh-in-game-version':
+				defaultCamZoom = 1;
+		}
+
 
 		var gfVersion:String = 'gf';
 
@@ -923,13 +951,24 @@ class PlayState extends MusicBeatState
 		}
 
 		dad = new Character(100, 100, SONG.player2);
-		if(Performance.getPref('low-dad') && Character.isNormalDad) {
+		if(Performance.getPref('low-dad') && !Character.isNormalDad) {
 			dad.x += 110;
 			dad.y += 165; 
 		}
 		else {
 			dad.x += 0;
 			dad.y +=0;
+		}
+
+		if(SONG.player2 == 'gf') {
+			if(Performance.getPref('low-gf') && !Character.isNormalGF) {
+				dad.x += 110;
+				dad.y += 165; 
+			}
+			else {
+				dad.x += 0;
+				dad.y +=0;
+			}
 		}
 
 		camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);

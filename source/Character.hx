@@ -17,6 +17,7 @@ class Character extends FlxSprite
 	public var isPlayer:Bool = false;
 	public static var isNormalDad:Bool = true;
 	public static var isNormalBF:Bool = true;
+	public static var isNormalGF:Bool = true;
 	public static var icon:String = 'face';
 	public static var iconBF:String = 'bf';
 	public var curCharacter:String = 'bf';
@@ -40,7 +41,7 @@ class Character extends FlxSprite
 		{
 			case 'gf':
 				// GIRLFRIEND CODE
-				isNormalDad = false;
+				isNormalGF = false;
 				if(PlayState.SONG.song.toLowerCase() == 'tutorial-beta-mix') {
 					icon = 'lady';
 					tex = Paths.getSparrowAtlas('characters/yankin');
@@ -60,9 +61,9 @@ class Character extends FlxSprite
 					loadOffsetFile(curCharacter);
 
 					playAnim('danceRight');
-				}
-				isNormalDad = true;
-				if(PlayState.curStage == 'harkinians-castle') {
+				}	
+				else if(PlayState.curStage == 'harkinians-castle') {
+					isNormalGF = true;
 					if(Performance.getPref('low-gf')) {
 						tex = Paths.getSparrowAtlas('characters/ZELDA');
 						frames = tex;
@@ -106,6 +107,7 @@ class Character extends FlxSprite
 					}
 				}
 				else if(PlayState.SONG.song.toLowerCase() == 'dadbattle-jp-version') {
+					isNormalGF = true;
 					if(Performance.getPref('low-gf')) {
 						tex = Paths.getSparrowAtlas('characters/mako');
 						frames = tex;
@@ -149,6 +151,7 @@ class Character extends FlxSprite
 					}
 				}
 				else {
+					isNormalGF = true;
 					if(Performance.getPref('low-gf')) {
 						tex = Paths.getSparrowAtlas('characters/GF_assets_low');
 						frames = tex;
@@ -381,7 +384,7 @@ class Character extends FlxSprite
 
 					playAnim('idle'); 
 				}*/
-				else if(PlayState.SONG.song.toLowerCase() == 'fresh-itch.io-build' && PlayState.SONG.song.toLowerCase() == 'test') {
+				else if(PlayState.SONG.song.toLowerCase() == 'fresh-itch.io-build' || PlayState.SONG.song.toLowerCase() == 'test') {
 					icon = 'crazybus';
 					if(Performance.getPref('low-dad')) {
 						tex = Paths.getSparrowAtlas('characters/ur_father');
@@ -412,7 +415,7 @@ class Character extends FlxSprite
 						playAnim('idle');
 					}	
 				}
-				else if(PlayState.SONG.song.toLowerCase() == 'test') {
+				/*else if(PlayState.SONG.song.toLowerCase() == 'test') {
 					icon = 'bf-pixel';
 					if(Performance.getPref('low-dad')) {
 						tex = Paths.getSparrowAtlas('characters/ur_father');
@@ -442,7 +445,7 @@ class Character extends FlxSprite
 
 						playAnim('idle');
 					}	
-				}
+				}*/
 				else if(PlayState.SONG.song.toLowerCase() == 'fresh-ost-version') {
 					icon = 'doubledad';
 					if(Performance.getPref('low-dad')) {
@@ -502,6 +505,32 @@ class Character extends FlxSprite
 
 						playAnim('idle');
 					}	
+				}
+				else if(PlayState.SONG.song.toLowerCase() == 'test-in-game-version') {
+					frames = Paths.getSparrowAtlas('characters/bfPixel');
+					quickAnimAdd('idle', 'BF IDLE');
+					quickAnimAdd('singUP', 'BF UP NOTE');
+					quickAnimAdd('singLEFT', 'BF LEFT NOTE');
+					quickAnimAdd('singRIGHT', 'BF RIGHT NOTE');
+					quickAnimAdd('singDOWN', 'BF DOWN NOTE');
+					quickAnimAdd('singUPmiss', 'BF UP MISS');
+					quickAnimAdd('singLEFTmiss', 'BF LEFT MISS');
+					quickAnimAdd('singRIGHTmiss', 'BF RIGHT MISS');
+					quickAnimAdd('singDOWNmiss', 'BF DOWN MISS');
+
+					loadOffsetFile('bf-pixel');
+
+					setGraphicSize(Std.int(width * 6));
+					updateHitbox();
+
+					playAnim('idle');
+
+					width -= 100;
+					height -= 100;
+
+					antialiasing = false;
+
+					flipX = true;
 				}
 				else {
 					isNormalDad = true;

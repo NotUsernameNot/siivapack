@@ -19,9 +19,12 @@ class HealthIcon extends FlxSprite
 	{
 		super();
 		this.isPlayer = isPlayer;
+		if(char == 'face')
+			char = 'dad';
 		changeIcon(char);
 		antialiasing = true;
 		scrollFactor.set();
+		
 	}
 
 	public function swapOldIcon()

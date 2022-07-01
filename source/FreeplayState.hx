@@ -71,7 +71,7 @@ class FreeplayState extends MusicBeatState
 		isFreeplay = true;
 
 		if (StoryMenuState.weekUnlocked[2])
-			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Fresh-Ost-Version', 'Fresh-Poop-Version', 'Fresh-Week-7-Update', 'Dadbattle', 'Dadbattle-In-Game-Mix', 'Dadbattle-In-Game-Version', 'Dadbattle-Jp-Version'], 1, ['dad', 'dad', 'dad', 'dad', 'dad-scat', 'dad', 'dad', 'dad-imposter', 'bigchungus', 'crazybus', 'bomberman', 'dad', 'doubledad', 'harkinian', 'plok', 'dad', 'mario', 'ragyo']);
+			addWeek(['Bopeebo', 'Bopeebo-Beta-Mix', 'Bopeebo-In-Game-Version', 'Bopeebo-Extended-Version', 'Bopeebo-Itch.io-Build', 'Bopeebo-Newgrounds-Build', 'Bopeebo-Short-Version', 'Fresh', 'Fresh-In-Game-Version', 'Fresh-Itch.io-Build', 'Fresh-Alternative-Version', 'Fresh-Vocal-Mix', 'Fresh-Ost-Version', 'Fresh-Poop-Version', 'Fresh-Week-7-Update', 'Dadbattle', 'Dadbattle-In-Game-Mix', 'Dadbattle-In-Game-Version', 'Dadbattle-Jp-Version'], 1, ['dad', 'dad', 'dad', 'dad', 'dad-scat', 'dad', 'dad', 'dad-imposter', 'bigchungus', 'crazybus', 'bomberman', 'dad', 'doubledad', 'harkinian', 'plok', 'face', 'mario', 'ragyo']);
 
 		if (StoryMenuState.weekUnlocked[2])
 			addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky', 'spooky', 'monster']);
@@ -141,7 +141,7 @@ class FreeplayState extends MusicBeatState
 
 			// using a FlxGroup is too much fuss!
 			iconArray.push(icon);
-			if(songs[curSelected].songName.toLowerCase() == 'dadbattle-in-game-mix')
+			if(songs[i].songCharacter == 'face')
 				icon.visible = false;
 			else
 				icon.visible = true;
