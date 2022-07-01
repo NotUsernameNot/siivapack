@@ -951,7 +951,7 @@ class PlayState extends MusicBeatState
 		}
 
 		dad = new Character(100, 100, SONG.player2);
-		if(Performance.getPref('low-dad') && !Character.isNormalDad) {
+		if(Performance.getPref('low-dad') && Character.isNormalDad) {
 			dad.x += 110;
 			dad.y += 165; 
 		}
@@ -961,7 +961,7 @@ class PlayState extends MusicBeatState
 		}
 
 		if(SONG.player2 == 'gf') {
-			if(Performance.getPref('low-gf') && !Character.isNormalGF) {
+			if(Performance.getPref('low-gf') && Character.isNormalGF) {
 				dad.x += 110;
 				dad.y += 165; 
 			}
