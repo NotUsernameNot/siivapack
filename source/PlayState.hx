@@ -2252,10 +2252,16 @@ class PlayState extends MusicBeatState
 
 				if (doKill)
 				{
-					if (daNote.tooLate || !daNote.wasGoodHit && daNote.mustPress/*&& SONG.song.toLowerCase() != 'dadbattle-in-game-mix'*/)
+					if (daNote.tooLate || !daNote.wasGoodHit)
 					{
-						health -= 0.0475;
-						vocals.volume = 0;
+						if(daNote.mustPress && SONG.song.toLowerCase() != 'dadbattle-in-game-mix') {
+							health -= 0.0475;
+							vocals.volume = 0;
+						}
+						else {
+							health -= 0.0475;
+							vocals.volume = 0;
+						}
 					}
 
 					daNote.active = false;
